@@ -8,15 +8,14 @@ namespace SobreCargados
         private int[,] matrizA;
         private int[,] matrizB;
         private int[,] matrizC;
-       
-
-        
-
+        int filas, columnas;
         public void Leer()
         {
-            matrizA = new int[10, 10];
+            
+            matrizA = new int[10,10];
             matrizB = new int[10, 10];
             matrizC = new int[10, 10];
+           
 
             Console.WriteLine("Ingresando datos al matriz A");
             for (int i = 1; i <= 2; i++)
@@ -29,6 +28,17 @@ namespace SobreCargados
                     matrizA[i, j] = int.Parse(linea);
                 }
             }
+            for (int f = 1; f <= 2; f++)
+            {
+                
+                for (int c = 1; c <= 2; c++)
+                {
+                    Console.Write(matrizA[f, c] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey();
+
             Console.WriteLine("Ingresando datos al matriz B");
             for (int i = 1; i <= 2; i++)
             {
@@ -40,6 +50,16 @@ namespace SobreCargados
                     matrizB[i, j] = int.Parse(linea);
                 }
             }
+            for (int f = 1; f <= 2; f++)
+            {
+                
+                for (int c = 1; c <= 2; c++)
+                {
+                    Console.Write(matrizB[f, c] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey();
             for (int i = 1; i <= 2; i++)
             {
                 for (int j = 1; j <= 2; j++)
@@ -50,9 +70,13 @@ namespace SobreCargados
         }
         public void Imprimir()
         {
-            for (int f = 0; f <=2; f++)
+
+            Console.WriteLine("Suma de las matrices es: ");
+            Console.Write("");
+            for (int f = 1; f <=2; f++)
             {
-                for (int c = 0; c <=2; c++)
+                
+                for (int c = 1; c <=2; c++)
                 {
                     Console.Write(matrizC[f, c] + " ");
                 }
@@ -60,6 +84,8 @@ namespace SobreCargados
             }
             Console.ReadKey();
         }
+     
+       
         static void Main(string[] args)
         {
             Program Leer = new Program();
