@@ -4,93 +4,103 @@ namespace SobreCargados
 {
     class Program
     {
-
-        private int[,] matrizA;
-        private int[,] matrizB;
-        private int[,] matrizC;
-        int filas, columnas;
-        public void Leer()
-        {
-            
-            matrizA = new int[10,10];
-            matrizB = new int[10, 10];
-            matrizC = new int[10, 10];
-           
-
-            Console.WriteLine("Ingresando datos al matriz A");
-            for (int i = 1; i <= 2; i++)
-            {
-                for (int j = 1; j <= 2; j++)
-                {
-                    Console.Write("Ingrese posicion [" + i  + "," + j +  "]: ");
-                    string linea;
-                    linea = Console.ReadLine();
-                    matrizA[i, j] = int.Parse(linea);
-                }
-            }
-            for (int f = 1; f <= 2; f++)
-            {
-                
-                for (int c = 1; c <= 2; c++)
-                {
-                    Console.Write(matrizA[f, c] + " ");
-                }
-                Console.WriteLine();
-            }
-            Console.ReadKey();
-
-            Console.WriteLine("Ingresando datos al matriz B");
-            for (int i = 1; i <= 2; i++)
-            {
-                for (int j = 1; j <= 2; j++)
-                {
-                    Console.Write("Ingrese posicion [" + i + "," + j + "]: ");
-                    string linea;
-                    linea = Console.ReadLine();
-                    matrizB[i, j] = int.Parse(linea);
-                }
-            }
-            for (int f = 1; f <= 2; f++)
-            {
-                
-                for (int c = 1; c <= 2; c++)
-                {
-                    Console.Write(matrizB[f, c] + " ");
-                }
-                Console.WriteLine();
-            }
-            Console.ReadKey();
-            for (int i = 1; i <= 2; i++)
-            {
-                for (int j = 1; j <= 2; j++)
-                {
-                    matrizC[i, j] = matrizA[i, j] + matrizB[i, j];
-                }
-            }
-        }
-        public void Imprimir()
+       
+        static int[] arreglo = null;
+        static int[,] matriz = null;
+        
+        
+        public void sumar(int[] a)
         {
 
-            Console.WriteLine("Suma de las matrices es: ");
-            Console.Write("");
-            for (int f = 1; f <=2; f++)
-            {
-                
-                for (int c = 1; c <=2; c++)
-                {
-                    Console.Write(matrizC[f, c] + " ");
-                }
-                Console.WriteLine();
-            }
-            Console.ReadKey();
         }
-     
+        public void sumar(int[,] a)
+        {
+
+        }
+        public void sumar(int[,] a, int[,] b)
+        {
+
+        }
+        public void sumar(int[,] a, int r)
+        {
+
+        }
+        public void sumar(int c, int[] a)
+        {
+
+        }
+        /*   public static int[] definirTamaño(int[] a)
+          {
+              Console.WriteLine("Ingrese el tamaño del vector");
+              int tam = int.Parse(Console.ReadLine());
+              a = new int[tam];
+              return a;
+          }*/
+        public static int[,] definirTamaño(int[,] a)
+          {
+              Console.WriteLine("Ingrese el tamaño de las filas");
+              int filas = int.Parse(Console.ReadLine());
+              Console.WriteLine("Ingrese el tamaño de las filas");
+              int columnas = int.Parse(Console.ReadLine());
+
+              a = new int[filas, columnas];
+              return a;
+          }
+         /*  public static void leer(int[] c)
+          {
+              Console.WriteLine("Digite los numeros del arreglo");
+              for (int i = 0; i < c.Length; i++)
+              {
+                  Console.Write("Ingresa el numero el la posicion [" + i + "] ");
+                  c[i] = int.Parse(Console.ReadLine());
+              }
+          }*/
+        public static void leer(int[,]a)
+          {
+              Console.WriteLine("Digite los numeros de la matriz");
+              for (int i = 0; i < a.Length; i++)
+              {
+                  for (int j = 0; j < a.GetLength(0); j++)
+                  {
+                      Console.Write("Ingresa el numero el la posicion [" + i + "] ");
+                      a[i,j] = int.Parse(Console.ReadLine());
+                  }
+              }
+          } 
+        /* public static void imprimir( int []a)
+          {
+              Console.WriteLine("Los numeros del arreglo son los siguientes");
+              for (int i = 0; i < a.Length; i++)
+              {
+                  Console.WriteLine("En la posicion [" + i + "]" + " el numero  es "+"[" + a[i] + "] ");
+              }
+
+          }*/
+
+
+        public static void  imprimir(int[,]a)
+        {
+            Console.WriteLine("Los numeros del arreglo son los siguientes");
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = 0; j < a.GetLength(0); j++)
+                {
+                   Console.WriteLine( a[i,j]);
+                }
+            }
+
+        }
        
         static void Main(string[] args)
         {
-            Program Leer = new Program();
-            Leer.Leer();
-            Leer.Imprimir();
+            //arreglo = definirTamaño(arreglo);
+            //leer(arreglo);
+            //imprimir(arreglo);
+            matriz = definirTamaño(matriz);
+            leer(matriz);
+            imprimir(matriz);
+            
+         
         }
     }
 }
