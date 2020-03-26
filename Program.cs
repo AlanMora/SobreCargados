@@ -12,9 +12,7 @@ namespace SobreCargados
         static int[,] SumarMatrices = null;
         static int sumaFilas = 0;
         static int sumaColumnas = 0;
-        int a;
-
-
+        
         public static void sumar(int[] a)
         {
             int suma = 0;
@@ -37,9 +35,9 @@ namespace SobreCargados
             }
             Console.WriteLine("La suma de la matriz es " + suma);
         }
-        public static int[,] sumar(int[,] a, int[,] b)
+        public static void sumar(int[,] a, int[,] b)
         {
-            int filas1 = a.Length;
+            /*int filas1 = a.Length;
             int columnas1 = a.Length;
 
             int filas2 = b.Length;
@@ -71,29 +69,54 @@ namespace SobreCargados
                 Console.WriteLine("");
             }
             return matrizR;
-        }
+        }*/
+            matrizR = new int[a.GetLength(0), b.GetLength(0)];
 
-        /* Console.WriteLine("suma de matrices");
-             int suma = 0;
-             for (int i = 0; i <a.GetLength(0); i++)
+         Console.WriteLine("suma de matrices");
+            Console.WriteLine();
+            for (int i = 0; i <a.GetLength(0); i++)
              {
-                 for (int j = 0; j <b.GetLength(0); j++)
+                 for (int j = 0; j <b.GetLength(1); j++)
                  {
-                     suma = matriz[i, j] + matriz1[i, j];
-
+                     matrizR[i,j] = a[i, j] + b[i, j];
                  }
 
              }
-             Console.Write("la suma de las matrices " + suma);
-             for (int i = 0; i < a.GetLength(0); i++)
+            Console.Write("Matriz A ");
+          
+            for (int i = 0; i < a.GetLength(0); i++)
              {
                  Console.Write("\n");
-                 for (int j = 0; j <b.GetLength(0); j++)
+                 for (int j = 0; j <a.GetLength(1); j++)
                  {
-                     Console.Write(matrizR[i, j] + " ");
+                     Console.Write(a[i, j] + " ");
                  }
              }
-         }*/
+            Console.WriteLine();
+            Console.Write("Matriz B ");
+          
+
+            for (int i = 0; i < b.GetLength(0); i++)
+            {
+                Console.Write("\n");
+                for (int j = 0; j < b.GetLength(1); j++)
+                {
+                    Console.Write(b[i, j] + " ");
+                }
+            }
+            Console.WriteLine();
+            Console.Write("Matriz C ");
+        
+
+            for (int i = 0; i < matrizR.GetLength(0); i++)
+            {
+                Console.Write("\n");
+                for (int j = 0; j < matrizR.GetLength(1); j++)
+                {
+                    Console.Write(matrizR[i, j] + " ");
+                }
+            }
+        }
         public static void sumar(int[,] a, int Filas)
         {
 
@@ -126,9 +149,7 @@ namespace SobreCargados
                 {
                     sumaFilas += a[i, j]; 
                     
-                }
-
-               
+                }        
                 Console.WriteLine("La suma de las filas en la posicion ["+ i +"] es : " +sumaFilas);
 
             }
@@ -159,7 +180,7 @@ namespace SobreCargados
             }
         }
 
-        public static void leer(int c, int f)
+       /* public static void leer(int c, int f)
         { 
             matriz = new int[c, f];
             matriz1 = new int[c, f];
@@ -189,6 +210,34 @@ namespace SobreCargados
                     }
                     break;
             }           
+        }*/
+        public static void leer(int c, int f)
+        {
+            matriz = new int[c, f];          
+                    for (int i = 0; i < c; i++)
+                    {
+                        for (int j = 0; j < f; j++)
+                        {
+                            Console.Write("Ingresa el numero el la posicion [" + (i) + "][" + (j) + "]: ");
+                            matriz[i, j] = int.Parse(Console.ReadLine());
+                        } 
+                    }
+        }
+        public static void leeer(int c, int f)
+        {
+            matriz1 = new int[c, f];
+           
+                   
+                    for (int i = 0; i < c; i++)
+                    {
+                        for (int j = 0; j < f; j++)
+                        {
+                            Console.Write("Ingresa el numero el la posicion [" + (i) + "][" + (j) + "]: ");
+                            matriz1[i, j] = int.Parse(Console.ReadLine());
+                        }
+                    }
+                   
+            
         }
         public static void imprimir(int[] a)
         {
@@ -213,42 +262,55 @@ namespace SobreCargados
         }
         static void Main(string[] args)
         {
-            /*
+            
             Console.WriteLine("Digite el tamaño del arreglo");
             int a = int.Parse(Console.ReadLine());
             leer(a);
             imprimir(arreglo);
             sumar(arreglo);
-            */
+            
+            Console.WriteLine("*************************************************NOTAA********************************************");
+            Console.WriteLine("******Compa para poder sumar las matrices, deberan tener el mismo numero de filas y columnas******");
+            Console.WriteLine("*************************************************NOTAA********************************************");
             Console.WriteLine("Digite el tamaño de las columnas");
            int c = int.Parse(Console.ReadLine());
             Console.WriteLine("Digite el tamaño de las filas");
             int f = int.Parse(Console.ReadLine());
             leer(c, f);
             imprimir(matriz);
-            //  sumar(matriz);
-            //sumar(matriz, 3);
-            // sumar(3, matriz);
+             sumar(matriz);
+           
+            
             Console.Write("Que No. de fila  que desea sumar : ");
             int fila = int.Parse(Console.ReadLine());
             sumar(matriz, fila);
+
             Console.Write("Que No. de columna que desea sumar : ");
             int columna = int.Parse(Console.ReadLine());
-            sumar(columna, matriz);
+           sumar(columna, matriz);
 
 
             sumarTodos(matriz, 2);
             sumarTodos(2, matriz);
 
 
-            //Console.WriteLine("Digite el tamaño de las columnas");
-            // int a = int.Parse(Console.ReadLine());
-            // Console.WriteLine("Digite el tamaño de las filas");
-            // int b = int.Parse(Console.ReadLine());
-            //leer(a, b);
-            //imprimir(matriz1);
-            // sumar(matriz1);
-            //  sumar(matriz, matriz1);
+            Console.WriteLine("Digite el tamaño de las columnas");
+             int d = int.Parse(Console.ReadLine());
+             Console.WriteLine("Digite el tamaño de las filas");
+             int b = int.Parse(Console.ReadLine());
+            leeer(d, b);
+            imprimir(matriz1);
+             sumar(matriz1);
+
+
+            Console.Write("Que No. de fila  que desea sumar : ");
+            int filas = int.Parse(Console.ReadLine());
+            sumar(matriz1, filas);
+
+            Console.Write("Que No. de columna que desea sumar : ");
+            int columnaa = int.Parse(Console.ReadLine());
+            sumar(columnaa, matriz1);
+            sumar(matriz, matriz1);
 
         }
     }
